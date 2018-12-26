@@ -1,0 +1,47 @@
+* {
+    margin:0;
+    padding: 0;
+}
+
+.containerInfo {
+    position: absolute;
+    z-index: 1;
+    top: 50px;
+    left: 50px;
+}
+
+.containerInfo input {
+    outline: none;
+    border-radius: 5px;
+    height: 30px;
+    width: 200px;
+    padding: 5px;
+    border: none;
+    background: rgba(256,256,256,0.8);
+}
+
+.containerInfo input:focus {
+    background: rgba(256,256,256,0.95);
+}
+
+.alertInfo {
+    color: red;
+    border: 1px solid #fff;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+}
+
+.wrapperDays {
+    position:absolute;
+    z-index: 1;
+    top: 100px;
+    left: 50px;
+    border-radius: 5px;
+    display: flex;
+    margin-top: 30px;
+    background: rgba(256, 256, 256, 0.8);
+}
+.dayWeather {
+    margin: 30px;
+}
