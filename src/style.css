@@ -3,11 +3,42 @@
     padding: 0;
 }
 
+#map {
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:100%;
+}
+
+.wrapperInputText {
+    display: flex;
+    flex-direction: column;
+    background: rgba(256,256,256,0.6);
+    border-radius: 5px;
+    padding: 20px;
+}
+
+.styleMap {
+    margin-top: 30px;
+}
+
+.styleMap select {
+    outline: none;
+    border-radius: 5px;
+    height: 40px;
+    width: 100%;
+    padding: 5px;
+    border: none;
+    background: rgba(256,256,256,0.8);
+    box-sizing: border-box;
+}
+
 .containerInfo {
     position: absolute;
     z-index: 1;
     top: 50px;
     left: 50px;
+    bottom: 50px;
 }
 
 .containerInfo input {
@@ -24,24 +55,23 @@
     background: rgba(256,256,256,0.95);
 }
 
-.alertInfo {
-    color: red;
-    border: 1px solid #fff;
-    margin-top: 30px;
-    padding: 10px;
-    text-align: center;
+[data-value=false] {
+    border: 1px solid red;
 }
 
 .wrapperDays {
     position:absolute;
     z-index: 1;
-    top: 100px;
-    left: 50px;
+    bottom: 0;
+    left: 40px;
     border-radius: 5px;
     display: flex;
-    margin-top: 30px;
-    background: rgba(256, 256, 256, 0.8);
 }
+
 .dayWeather {
-    margin: 30px;
+    background: rgba(256, 256, 256, 0.8);
+    margin: 0 10px;
+    padding: 20px;
+    width: 150px;
+    border-radius: 5px;
 }

@@ -10,9 +10,28 @@
 <body>
     <div id="map"></div>
     <div class="containerInfo">
-        <input type="text"/>
-        <p class="alertInfo">Нет такого города</p>
+        <div class="wrapperInputText">
+        <label>
+            <p>Write name of city</p>
+            <input type="text" data-value="true"/>
+        </label>
+        <label class="styleMap">
+            <p>Choose style map</p>
+            <select>
+                <option value="mapbox://styles/mapbox/streets-v10" selected>streets</option>
+                <option value="mapbox://styles/mapbox/outdoors-v10">outdoors</option>
+                <option value="mapbox://styles/mapbox/light-v9">light</option>
+                <option value="mapbox://styles/mapbox/dark-v9">dark</option>
+                <option value="mapbox://styles/mapbox/satellite-v9">satellite</option>
+                <option value="mapbox://styles/mapbox/satellite-streets-v10">satellite-streets</option>
+                <option value="mapbox://styles/mapbox/navigation-preview-day-v2">navigation-preview-day</option>
+                <option value="mapbox://styles/mapbox/navigation-preview-night-v2">navigation-preview-night</option>
+                <option value="mapbox://styles/mapbox/navigation-guidance-day-v2">navigation-guidance-day</option>
+                <option value="mapbox://styles/mapbox/navigation-guidance-night-v2">navigation-guidance-night</option>
+            </select>
+        </label>
+        </div>
+        <div class="wrapperDays"></div>
     </div>
-    <div class="wrapperDays"></div>
 </body>
 </html>
