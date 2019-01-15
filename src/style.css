@@ -75,3 +75,7 @@
     width: 150px;
     border-radius: 5px;
 }
+
+input[data-value="false"] {
+    border: 1px solid red;
+}
