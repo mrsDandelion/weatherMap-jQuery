@@ -1,35 +1,25 @@
-//import axios from "axios";
+import axios from "axios";
 import infoWeather from "../constans/weather";
 import createViewWeather from './../view/createViewWeather.js'
 import createMap from "./createMap.js";
 
-export default function getInfoUsingName(nameCity) {
-    const textInput = $('.wrapperInputText input');
-    if(textInput.val()){
-        textInput.attr( "data-value", true );
-        $.ajax({
-            method: "GET",
-            url:`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=${infoWeather.appId}`,
-            cache: false
+export default async function getInfoUsingName(nameCity) {
+    const select = document.querySelector('.styleMap select');
+    const wrapperDays = document.querySelector('.wrapperDays');
+    await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=${infoWeather.appId}`)
+        .then( responce => {
+            const map = document.getElementById('map');
+            map.innerHTML = '';
+            wrapperDays.innerHTML = '';
+            createMap('map', select.value, 12, [responce.data.city.coord.lon, responce.data.city.coord.lat]);
+            createViewWeather(wrapperDays, responce.data.list);
         })
-        .done( responce =>{
-            $('#map').empty();
-            createMap('map', $('.styleMap select').val(), 12, [responce.city.coord.lon, responce.city.coord.lat]);
-            createViewWeather($('.wrapperDays').empty(), responce.list);
-        })
-        .fail(() => {
-            textInput.attr( "data-value", false );
-            $('.wrapperDays').empty();
+        .catch(() => {
+            if(nameCity) {
+                document.querySelector('.wrapperInputText input').setAttribute("data-value", false);
+                wrapperDays.innerHTML = '';
+            } else {
+                createMap('map', select.value);
+            }
         });
-
-        //await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=${infoWeather.appId}`)
-        //         .then( responce =>{
-        //             $('#map').empty();
-        //             createMap('map', $('.styleMap select').val(), 12, [responce.data.city.coord.lon, responce.data.city.coord.lat]);
-        //             createViewWeather($('.wrapperDays').empty(), responce.data.list);
-        //         })
-        //         .catch(() => {
-        //             $('.wrapperInputText input').attr( "data-value", false );
-        //         });
-    }
 }

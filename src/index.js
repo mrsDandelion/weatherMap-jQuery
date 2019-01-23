@@ -2,12 +2,15 @@ import createMap from './controller/createMap';
 import getInfoUsingName from './controller/getInfoWeather';
 import "./style.css";
 
-createMap('map', $('.styleMap select').val());
+const select = document.querySelector('.styleMap select');
+const textInput = document.querySelector('.containerInfo input');
 
-$('.containerInfo input').on('change', function(){
-   getInfoUsingName($(this).val());
+createMap('map', select.value);
+
+textInput.addEventListener('change', (event)=>{
+    getInfoUsingName(event.target.value);
 });
 
-$('.styleMap select').on('change', function(){
-    getInfoUsingName($('.containerInfo input').val());
+select.addEventListener('change', ()=>{
+    getInfoUsingName(textInput.value);
 });
