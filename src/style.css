@@ -79,3 +79,7 @@
 input[data-value="false"] {
     border: 1px solid red;
 }
+
+div.mapboxgl-ctrl-top-right {
+    top: calc(50vh - 45px);
+}

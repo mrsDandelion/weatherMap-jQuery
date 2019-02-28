@@ -6,8 +6,10 @@ import createMap from "./createMap.js";
 export default async function getInfoUsingName(nameCity) {
     const select = document.querySelector('.styleMap select');
     const wrapperDays = document.querySelector('.wrapperDays');
+    const textInput = document.querySelector('.wrapperInputText input');
     await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=${infoWeather.appId}`)
         .then( responce => {
+            textInput.setAttribute("data-value", true);
             const map = document.getElementById('map');
             map.innerHTML = '';
             wrapperDays.innerHTML = '';
@@ -16,7 +18,7 @@ export default async function getInfoUsingName(nameCity) {
         })
         .catch(() => {
             if(nameCity) {
-                document.querySelector('.wrapperInputText input').setAttribute("data-value", false);
+                textInput.setAttribute("data-value", false);
                 wrapperDays.innerHTML = '';
             } else {
                 createMap('map', select.value);
