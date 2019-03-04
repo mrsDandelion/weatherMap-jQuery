@@ -16,6 +16,7 @@
     background: rgba(256,256,256,0.6);
     border-radius: 5px;
     padding: 20px;
+    margin-bottom: 30px;
 }
 
 .styleMap {
@@ -38,20 +39,18 @@
     z-index: 1;
     top: 50px;
     left: 50px;
-    bottom: 50px;
 }
 
-.containerInfo input {
+.containerInfo input[type=text] {
     outline: none;
     border-radius: 5px;
     height: 30px;
-    width: 200px;
     padding: 5px;
     border: none;
     background: rgba(256,256,256,0.8);
 }
 
-.containerInfo input:focus {
+.containerInfo input[type=text]:focus {
     background: rgba(256,256,256,0.95);
 }
 
@@ -60,12 +59,12 @@
 }
 
 .wrapperDays {
+    display: flex;
     position:absolute;
     z-index: 1;
-    bottom: 0;
+    bottom: 40px;
     left: 40px;
     border-radius: 5px;
-    display: flex;
 }
 
 .dayWeather {
@@ -82,4 +81,30 @@ input[data-value="false"] {
 
 div.mapboxgl-ctrl-top-right {
     top: calc(50vh - 45px);
+}
+
+.wrapperCheckbox {
+    display: flex;
+    align-items: center;
+    z-index: 1;
+    position: absolute;
+    left: 50px;
+    top: 250px;
+    background: rgba(256, 256, 256, 0.8);
+    border-radius: 5px;
+}
+.wrapperCheckbox > div {
+    margin: 20px 20px 20px 0;
+    display: flex;
+    align-items: center;
+}
+
+.wrapperCheckbox > div:first-child {
+    margin-left: 20px;
+}
+
+.wrapperCheckbox input {
+    height: 20px;
+    width: 20px;
+    margin-right: 15px;
 }
