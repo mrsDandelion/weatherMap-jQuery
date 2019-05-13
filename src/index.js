@@ -2,8 +2,10 @@ import createMap from './controller/createMap';
 import getInfoUsingName from './controller/getInfoWeather';
 import "./style.css";
 
-const select = document.querySelector('.styleMap select');
-const textInput = document.querySelector('.containerInfo input');
+var select, textInput;
+
+select = document.querySelector('.styleMap select');
+textInput = document.querySelector('.containerInfo input');
 
 createMap('map', select.value);
 

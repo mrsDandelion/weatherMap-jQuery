@@ -4,10 +4,13 @@ import createDays from './../view/createDays.js'
 import createMap from "./createMap.js";
 
 export default async function getInfoUsingName(nameCity) {
-    const select = document.querySelector('.styleMap select');
-    const wrapperDays = document.querySelector('.wrapperDays');
-    const textInput = document.querySelector('.wrapperInputText input');
-    const wrapperCheckbox = document.querySelector('.wrapperCheckbox');
+    var select, wrapperDays, textInput, wrapperCheckbox;
+
+    select = document.querySelector('.styleMap select');
+    wrapperDays = document.querySelector('.wrapperDays');
+    textInput = document.querySelector('.wrapperInputText input');
+    wrapperCheckbox = document.querySelector('.wrapperCheckbox');
+
     await axios.get(`https://api.openweathermap.org/data/2.5/forecast?q=${nameCity}&appid=${infoWeather.appId}`)
         .then( responce => {
             textInput.setAttribute("data-value", true);

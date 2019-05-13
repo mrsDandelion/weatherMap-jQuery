@@ -6,14 +6,16 @@ export default class Map{
         this.center = center;
     }
     init(){
-        const control = new mapboxgl.NavigationControl();
-        const map =  new mapboxgl.Map({
-            container: this.container,
-            style: this.style,
-            center: this.center,
-            zoom: this.zoom,
-        });
-        map.addControl(control, 'top-right');
-        return map;
+      var control, map;
+
+      control = new mapboxgl.NavigationControl();
+      map =  new mapboxgl.Map({
+          container: this.container,
+          style: this.style,
+          center: this.center,
+          zoom: this.zoom,
+      });
+      map.addControl(control, 'top-right');
+      return map;
     }
 }
