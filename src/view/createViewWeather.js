@@ -1,5 +1,5 @@
 export default function createViewWeather(container, arrWeathers, isDays){
-  var timesInDay, amountDays, maxI, i, wrapperInfo;
+  var timesInDay, amountDays, maxI, i, j, wrapperInfo;
 
   timesInDay = 8;
   amountDays = isDays.length;

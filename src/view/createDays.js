@@ -16,7 +16,6 @@ export default function createDays(wrapperCheckbox, wrapperDays, arrWeathers){
         wrapperCheckbox.appendChild(wrapInput);
     }
     wrapperCheckbox.addEventListener('change', changeDays.bind(this));
-    wrapperCheckbox.addEventListenecr('change', changeDays.bind(this));
     createViewWeather(wrapperDays, arrWeathers, isDays);
 
     function changeDays(e){
