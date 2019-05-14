@@ -20,7 +20,6 @@ Map.prototype.createMap = function(){
 
 Map.prototype.init = function(){
     var control, map;
-    console.log(this);
     control = this.createControl();
     map = this.createMap();
     map.addControl(control, 'top-right');
