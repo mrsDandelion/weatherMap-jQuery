@@ -5,18 +5,33 @@ function Map (id, style, zoom, center){
     this.center = center;
 }
 
-Map.prototype.init = function(){
-    var control, map;
+Map.prototype.createControl = function(){
+    return new mapboxgl.NavigationControl();
+}
 
-    control = new mapboxgl.NavigationControl();
-    map =  new mapboxgl.Map({
+Map.prototype.createMap = function(){
+    return new mapboxgl.Map({
         container: this.container,
         style: this.style,
         center: this.center,
         zoom: this.zoom,
-    });
+    })
+}
+
+Map.prototype.init = function(){
+    var control, map;
+    console.log(this);
+    control = this.createControl();
+    map = this.createMap();
     map.addControl(control, 'top-right');
     return map;
 };
 
-export default Map;
+function myMap (){
+    Map.apply(this, arguments);
+}
+
+myMap.prototype = Object.create(Map.prototype);
+myMap.prototype.constructor = myMap;
+
+export default myMap;
